@@ -1,13 +1,13 @@
 # webdev-helpers
 Various helper functions for PHP and JS for any kind of project.
 
-##TOC
+## TOC
 
-###examples
+### examples/
 **contact.php** - An example script showcasing a basic contact form utilizing the PHP template functions to generate the HTML and demonstrating the use of the attribute shortcodes. Also contains input checks and sends a mail after 
 submission.
 
-###js
+### js/
 **arrays.js** - Helper functions that extend the array prototype.\
 **browser.js** - Functions regarding browser-specific actions like reading/manipulating the query parameters.\
 **clipboard.js** - Copies an input value to the clipboard of the OS.\
@@ -18,12 +18,13 @@ submission.
 **math.js** - Helpers for math based actions.\
 **strings.js** - Helpers for string operations.
 
-###php
-####db
+### php/
+#### db/
 **mysqli.php** - Functions that simplify the connection to a mysqli database as well as containing helpers for 
 quickly running SELECT, INSERT, UPDATE or DELETE queries on it.
-####PHPMailer
+#### PHPMailer/
 A copy of the PHPMailer plugin for sending mails with the sendMail() function defined in main.php\
+\
 __---__\
 **arrays.php** - Helpers for arrays.\
 **browser.php** - Helpers for browser-specific actions.\
