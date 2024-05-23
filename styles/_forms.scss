@@ -1,0 +1,46 @@
+input, textarea {
+  appearance: none;
+  line-height: 1.4em;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.2s ease-in-out, background-color 0.3s ease;
+
+  &:focus-visible {
+    border-radius: 10px;
+  }
+
+  &.invalid {
+    border: 1px dashed #964923;
+  }
+}
+
+input[type="submit"] {
+  appearance: none;
+  line-height: 1.4em;
+  outline: none;
+  border: none;
+  border-radius: 13px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    box-shadow: none;
+    transform: translateY(1px);
+  }
+
+  &:active {
+    margin: 0;
+  }
+}
+
+textarea {
+  min-height: 50px;
+  max-height: 300px;
+  resize: vertical;
+}

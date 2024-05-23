@@ -1,5 +1,5 @@
 //returns the value of the given query parameter by name
-function get_query_parameter(name) {
+function getQueryParameter(name) {
 	let url = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 	
 	if (empty(url)) url = window.location.href;
@@ -13,7 +13,7 @@ function get_query_parameter(name) {
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function set_query_parameter(param, value) {
+function setQueryParameter(param, value) {
 	let remove = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 	baseUrl = [location.protocol, "//", location.host, location.pathname].join("");
 	urlQueryString = document.location.search;
@@ -35,7 +35,7 @@ function set_query_parameter(param, value) {
 }
 
 //returns the hash-parameter in the current url
-function get_hash_parameter() {
+function getHashParameter() {
 	let hasharr = window.location.href.split("#");
 	let hash = "";
 	
@@ -46,7 +46,7 @@ function get_hash_parameter() {
 }
 
 // Read a page's GET URL variables and return them as an associative array.
-function get_url_vars() {
+function getUrlVars() {
 	let vars = [], hash;
 	let hashes = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&");
 	
@@ -74,9 +74,9 @@ function browserSupportFileUpload() {
 }
 
 // Method that reads and processes the selected file
-function upload(evt, target_func) {
+function upload(evt, targetFunc) {
 	if (!browserSupportFileUpload()) {
-		show_popup("error", "Dieser Browser oder diese Browserversion unterstützt nicht die benötigten Datei-APIs!");
+		showPopup("error", "Dieser Browser oder diese Browserversion unterstützt nicht die benötigten Datei-APIs!");
 	} else {
 		let data = null;
 		let file = evt.target.files[0];
@@ -89,14 +89,14 @@ function upload(evt, target_func) {
 			
 			if (data && data.length > 0) {
 				// alert(data.length + '- Reihen erfolgreich importiert.');
-				window[target_func](data);
+				window[targetFunc](data);
 			} else {
-				show_popup("error", "Keine Daten importiert!");
+				showPopup("error", "Keine Daten importiert!");
 			}
 		};
 		
 		reader.onerror = function () {
-			show_popup("error", "Unable to read " + file.fileName);
+			showPopup("error", "Unable to read " + file.fileName);
 		};
 	}
 }

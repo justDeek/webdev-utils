@@ -1,0 +1,100 @@
+﻿@function important($enable: true){
+  @return #{if($enable, '!important', '')};
+}
+
+@mixin no-drag() {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+@mixin no-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin no-interact($important: false) {
+  pointer-events: none #{important($important)};
+}
+
+@mixin color($var: --theme-primary) {
+  color: #{if($var != --theme-primary, var($var), linear-gradient(335deg, var(--theme-primary) 30%, var(--theme-secondary) 70%))};
+}
+
+@mixin bg-color($var: --theme-primary) {
+  background: #{if($var != --theme-primary, var($var), linear-gradient(335deg, var(--theme-primary) 30%, var(--theme-secondary) 70%))};
+}
+
+@mixin drop-shadow($color: rgba(0, 0, 0, 0.1), $x: 0, $y: 2px, $blur: 4px, $spread: 2px) {
+  box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin show($important: false) {
+  opacity: 1 #{important($important)};
+  visibility: visible #{important($important)};
+}
+
+@mixin hide($important: false) {
+  opacity: 0 #{important($important)};
+  visibility: hidden #{important($important)};
+}
+
+@mixin font($family: "Nunito") {
+  font-family: $family, system-ui, sans-serif;
+}
+
+@mixin bold($weight: 700) {
+  font-weight: $weight;
+}
+
+@mixin animate($type: all, $duration: 0.3s) {
+  transition: $type $duration ease;
+}
+
+@mixin center($top: 50%, $left: 50%, $important: false) {
+  position: absolute #{important($important)};
+  transform: translate(-50%, -50%) #{important($important)};
+  top: $top #{important($important)};
+  left: $left #{important($important)};
+}
+
+// center vertically and/or horizontally an absolute positioned element
+//@mixin center($xy:xy) {
+//  @if $xy == xy {
+//    left: 50%;
+//    top: 50%;
+//    bottom: auto;
+//    right: auto;
+//    transform: translateX(-50%) translateY(-50%);
+//  }
+//  @else if $xy == x {
+//    left: 50%;
+//    right: auto;
+//    transform: translateX(-50%);
+//  }
+//  @else if $xy == y {
+//    top: 50%;
+//    bottom: auto;
+//    transform: translateY(-50%);
+//  }
+//}
+
+// color tint and shade
+//@function shade(
+//  $color,
+//  $percent
+//) {
+//  @return mix(#000, $color, $percent);
+//}
+
+@function tint(
+  $color,
+  $percent
+) {
+  @return mix(#fff, $color, $percent);
+}

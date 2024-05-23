@@ -1,0 +1,126 @@
+.shadow {
+  box-shadow: 0 2px 3px 0 #0000008c;
+}
+
+.fade-in {
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fade-in;
+  -moz-animation-name: fade-in;
+  animation-name: fade-in;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.disabled {
+  pointer-events: none !important;
+  color: #5d5d5d !important;
+
+  &:hover {
+    color: unset !important;
+    background-color: unset !important;
+  }
+
+  button {
+    background-color: darkgray !important;
+    border-color: darkgray !important;
+    color: #666464 !important;
+  }
+}
+
+.disabled,
+.ripple-out {
+  display: inline-block;
+  transform: perspective(1px) translateZ(0);
+}
+
+.ripple-out::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  position: absolute;
+  border: #ffd50487 solid 4px;
+  animation-duration: 1.2s;
+}
+
+/*
+.ripple-out:focus:before {
+  animation-name: ripple-out;
+}
+*/
+
+.glossy {
+  /*  background-color: #cc11cc1f;*/
+  /*  background-color: #ff86862e;*/
+  /*  background-color: #117ecc1f;*/
+  background-color: #71719533;
+  border-width: 1px 0 0;
+  border-color: #fbedd440;
+
+  &:hover {
+    /*  background-color: #117ecc57;*/
+    background-color: #71719552;
+  }
+}
+
+.pop {
+  animation-name: pop;
+  opacity: 1 !important;
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media (hover: hover) {
+  .hover-rotate {
+    .hover-target {
+      transition: all 0.3s ease;
+      transform: rotateZ(0deg);
+    }
+
+    &:hover {
+      .hover-target {
+        transform: rotateZ(-10deg);
+      }
+    }
+  }
+
+  .hover-move-left {
+    .hover-target {
+      transform: translateX(0px);
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    &:hover {
+      .hover-target {
+        transform: translateX(-3px);
+      }
+    }
+  }
+
+  .hover-move-right {
+    .hover-target {
+      transform: translateX(0px);
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    &:hover {
+      .hover-target {
+        transform: translateX(3px);
+      }
+    }
+  }
+}

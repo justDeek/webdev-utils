@@ -1,5 +1,5 @@
 <?php
-require_once("../php/main.php");
+require_once("../main.php");
 
 $name = $_POST['name'] ?? "";
 $email = $_POST['email'] ?? "";

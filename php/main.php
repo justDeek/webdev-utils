@@ -30,7 +30,8 @@ function require_multi($prefix, $files, $suffix = ".php") {
 
 require_multi("", ["arrays", "browser", "debug", "gui", "html", "strings"]);
 require_multi("PHPMailer/", ["PHPMailer", "SMTP", "Exception"]);
-use PHPMailer\PHPMailer\PHPMailer;
+
+use PHPMailer\demo\PHPMailer\PHPMailer;
 
 //connect to the database
 require_multi("db/", ["mysqli"]);

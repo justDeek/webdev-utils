@@ -1,0 +1,122 @@
+@use 'vars' as *;
+@use 'mixins' as *;
+
+@use 'typography';
+@use 'forms';
+@use 'fx';
+@use 'utilities';
+
+:root {
+  // Colors
+  --theme-primary: #cfcfcf;
+  --theme-secondary: #e4e4e4;
+
+  --theme-bg: #ffffff;
+  --theme-highlight: #f6f5f9;
+  --theme-nav-icons: #222222;
+
+  --theme-text-1: #111111;
+  --theme-text-2: #222222;
+  --theme-text-3: #333333;
+
+  &.theme-dark {
+    --theme-primary: #cfcfcf;
+    --theme-secondary: #e4e4e4;
+
+    --theme-bg: #363340;
+    --theme-highlight: #43404e;
+    --theme-nav-icons: #565765;
+
+    --theme-text-1: #CCCCCC;
+    --theme-text-2: #BBBBBB;
+    --theme-text-3: #AAAAAA;
+  }
+
+  // Base styles
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  transition: box-shadow 0.15s ease !important;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme-primary) !important;
+  border-radius: 20px;
+}
+//.no-focus:focus-visible {
+//  transition: none;
+//  box-shadow: none;
+//}
+
+* {
+  @include font();
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  //overflow-wrap: anywhere;
+  backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s ease-out, opacity 0.3s ease-out;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  @include bg-color();
+  transition: background-color 0.3s ease-out;
+  overflow-y: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a[target=_blank]:not(.hide-ext-icon) {
+  &:after {
+    @include no-select();
+    @include animate();
+    content: "";
+    display: inline-block;
+    background-image: url(icons/external-link.svg); //url() starts from the public/static folder, so place the icon accordingly
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 19px;
+    height: 19px;
+  }
+  
+  &:hover:after {
+    filter: brightness(1.15);
+    opacity: 0.8;
+  }
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.date, .meta {
+  color: #999999;
+}
+
+.date {
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 2em;
+}
+
+.tags {
+  display: inline-flex;
+  gap: 0.5em;
+}
+
+.fill-current {
+  color: var(--theme-secondary);
+  fill: var(--theme-secondary);
+}

@@ -1,0 +1,75 @@
+@use 'mixins' as *;
+
+:is(h1, h2, h3, h4, h5, h6) {
+  margin: 3.5rem 0 1.5rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.0rem;
+}
+
+h3 {
+  font-size: 1.65em;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.35rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+
+b {
+  @include bold(600);
+}
+
+a {
+  @include animate();
+  @include bold(600);
+  color: #6ec3f4;
+  text-decoration: none;
+  word-wrap: break-word;
+
+  &:hover {
+    color: #a9dcfa;
+  }
+}
+
+sup, sub {
+  font-size: x-small;
+}
+
+pre[class*=language-] {
+  margin-top: 5px;
+  margin-bottom: 1em;
+}
+
+code {
+  font-size: 0.9em;
+}
+
+blockquote {
+  opacity: 0.75;
+}
