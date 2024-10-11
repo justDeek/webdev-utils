@@ -537,7 +537,7 @@ class ExDOM {
   #size(prop, value) {
     let propLC = prop.toLowerCase();
     if (!this[0]) return isUndefined(value) ? undefined : this;
-    if (!arguments.length) {
+    if (!value || !arguments.length) {
       if (isWindow(this[0])) return this[0].document.documentElement["client".concat(prop)];
       if (isDocument(this[0])) return getDocumentDimension(this[0], prop);
       return this[0].getBoundingClientRect()[propLC] - getExtraSpace(this[0], prop === 'Width');
